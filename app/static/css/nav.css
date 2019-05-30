@@ -1,0 +1,176 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    /* list-style: none; */
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+
+a{
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover{
+    color:darkgrey;
+}
+
+.head {
+    height: 42px;
+    margin: 0 auto;
+    background-color: #389bff;
+
+}
+
+.nav-center {
+    margin: 0 auto;
+    width: 1160px;
+}
+
+.fl {
+    display: inline;
+    float:left;
+}
+
+.parent {
+    position: relative;
+}
+
+.search {
+    width: 200px;
+    height: 32px;
+    border-radius: 18px;
+    outline: none;
+    border: 1px solid #ccc;
+    padding-left: 20px;
+    margin: 5px 10px;
+    color: #222;
+    float: left;
+    /* background-color:transparent; */
+}
+
+.searchbtn {
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    background-image: url("../images/searchlogo.jpg");
+    background-repeat: no-repeat;
+    top: 8px;
+    left: 370px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.list li {
+    float: left;
+    margin-right: 5px;
+    margin-top: 10px;
+    padding: 0 7px;
+    font-weight: bolder;
+    color: #ccc
+}
+
+.nav-center .container {
+    height: 32px;
+    width: 200px;
+    float: right;
+}
+
+.sign_in{
+    padding-top: 10px;
+    font-size:20px;
+}
+
+.i-face{
+    height: 32px;
+    width: 32px;
+    margin: 5px 10px;
+    margin-right: 0px;
+    float: left;
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    border: 0 solid #fff;
+}
+
+.a_list{
+    height: 32px;
+    float:left;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.a_list .username{
+    line-height: 32px;
+    font-size:20px;
+}
+
+
+.a_list ul,
+.displ_container ul {
+    display: inline-block;
+    /* height: 100px; */
+    /* width: 100px; */
+    /* text-align: center; */
+    background-color: #fff;
+    /*border: 1px solid #ccc;*/
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px #ccc;
+}
+
+
+.displ_container ul li {
+    font-size: 16px;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin: 10px;
+}
+
+.displ_container ul li a:hover {
+    color:lightskyblue;
+}
+
+.displ_container {
+    display: none;
+}
+
+.displ_container1 {
+    display: none;
+    position: absolute;
+    top: 54px;
+    left: 350px;
+} 
+
+.container .info .number {
+    display: block;
+    height: 32px;
+    width: 32px;
+    color: #333;
+    background-color: #bce8f1;
+    position: absolute;
+    /* right: 210px; */
+    text-align: center;
+    line-height: 32px;
+    font-size: 16px;
+    /* background-color: #333; */
+    font-weight: bolder;
+    border-radius: 30px;
+}
+
+.container .info{
+    margin: 5px 10px;
+    height: 32px;
+    width: 32px;
+    float: left;
+}
+
+hr{
+    border-top: 1px solid #ddd;
+    overflow: hidden;
+}

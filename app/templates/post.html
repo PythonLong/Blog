@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}post.title{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="../static/css/post.css">
+{% endblock %}
+
+{% block page_content %}
+    <div class="post">
+        <div class="article">
+            <h2 class="title">{{ post.title }}</h2>
+            <!-- 作者区域 -->
+            <div class="author">
+                <a href="{{ url_for('main.user',username=post.author.username) }}" class="avatar">
+                    <img src="{{ url_for('main.get_avatar',filename=post.author.avatar_s)}}" alt="avatar">
+                </a>
+                <div class="info">
+                    <span class="name">{{ post.author.username }}</span>
+                    <!--关注按钮-->
+                    <a href="" class="btn btn-blue">关注</a>
+
+                    <div class="meta">
+                        <span>{{ post.time }}</span>
+                        <span>评论 6</span>
+                    </div>
+                </div>
+
+                <!-- 如果是当前作者，加入编辑按钮 -->
+                {% if current_user == post.author or current_user.is_administrator %}
+                <div class="right">
+                    <a href="{{ url_for('main.change',id=post.id) }}" class="edit">编辑</a>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="content">
+                {{ post.html | safe }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

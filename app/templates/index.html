@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}首页{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="../static/css/index.css">
+{% endblock %}
+
+{% block page_content %}
+
+<div class="feed-fix-box">
+    <div class="scroll-fixbar">
+        Bluelog
+    </div>
+</div>
+<ul class="feedlist_mod">
+    {% for item in posts %}
+    <li class="chearfix">
+        <div class="list_con">
+            <div class="title">
+                <h2>
+                    <a href="{{ url_for('main.show_post',id=item.id) }}">{{ item.title }}</a>
+                </h2>
+            </div>
+
+            <div class="summary oneline">
+                {{ item.text | truncate(50)}}
+            </div>
+            <dl class="list_userbar">
+                <dt>
+                    <a class="user_img" href="">
+                        <img src="{{ url_for('main.get_avatar',filename=item.author.avatar_s)}}" alt="">
+                    </a>
+                </dt>
+                <dd class="name">
+                    <a href="">{{ item.author.username}}</a>
+                </dd>
+                <div class="interval"></div>
+                <dd class="tag">
+                    前端
+                </dd>
+                <div class="interval"></div>
+                <dd class="time">{{ item.time.strftime("%Y-%m-%d") }}</dd>
+                <div class="interactive floatR">
+                    <dd class="common_num ">
+                        <a href="">
+                            <span class="text">评论数</span>
+                            <span class="num">58</span>
+                        </a>
+                    </dd>
+                </div>
+            </dl>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/user.css') }}">
+{% endblock %}
+
+
+{% block page_content %}
+<div class="container view">
+    <div class="left_box">
+        <ul class="aside">
+            <li class="router-link-active">
+                <a class="zl" href="#">个人资料</a>
+            </li>
+            <li>
+                <a class="zl" href="#">我的收藏</a>
+            </li>
+            <li>
+                <a class="zl" href="#">我的关注</a>
+            </li>
+            <li>
+                <a class="zl" href="#">我的粉丝</a>
+            </li>
+        </ul>
+        <ul class="aside">
+            <li>
+                <a class="zl" href="#" target="_blank">我的下载</a>
+            </li>
+            <li>
+                <a class="zl" href="#" target="_blank">我的论坛</a>
+            </li>
+            <li>
+                <a class="zl" href="#" target="_blank">我的学院</a>
+            </li>
+        </ul>
+    </div>
+    <div class="view-container">
+        <div class="cont view">
+            <div class="right_cont">
+                <h3 class="title">个人资料</h3>
+                <div class="user_info">
+                    <div class="header">
+                        <img class="head" alt="" src="https://profile.csdnimg.cn/4/5/B/1_pyhonlong" data-v-0d738edb="">
+                        <p class="modify" data-v-0d738edb="">修改头像</p>
+                    </div>
+                    <!---->
+                    <div class="right_c">
+                        <div class="right_info" >
+                            <div class="id_card" >
+                                <span class="id_name" >ID：PyhonLong</span>
+                                <!---->
+                                <!---->
+                                <a class="user_home" href="#" target="_blank" data-v-0d738edb="">个人主页</a>
+                            </div>
+                        </div>
+                        <div class="csdn_info" >
+                            <span style="color: rgb(77, 77, 77); font-size: 14px; margin-right: 16px;" data-v-0d738edb="">关注 1</span>
+                            <span style="color: rgb(77, 77, 77); font-size: 14px; margin-right: 16px;" data-v-0d738edb="">粉丝 2</span>
+                            <span class="splits" >|</span>
+                            <span style="color: rgb(77, 77, 77); font-size: 14px; margin-right: 8px;" data-v-0d738edb="">C币  0</span>
+                            <!--<a class="charge" href="https://mall.csdn.net/vip_code" >充值</a>-->
+                        </div>
+                        <div class="line"></div>
+                        <div class="nick">
+                            <span >昵称：PyhonLong</span>
+                            <span class="mod" data-v-0d738edb="">修改资料</span>
+                        </div>
+                        <ul class="self">
+                            <li class="comon" data-v-0d738edb="">实名：</li>
+                            <li class="comon" data-v-0d738edb="">性别：男</li>
+                            <li class="comon" data-v-0d738edb="">生日：</li>
+                            <li class="comon" data-v-0d738edb="">地区：</li>
+                            <li class="comon" data-v-0d738edb="">行业：</li>
+                            <li class="comon" data-v-0d738edb="">职位：</li>
+                            <li class="comon" data-v-0d738edb="">简介:</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!----> <!---->
+        </div>
+    </div>
+</div>
+{% endblock %}

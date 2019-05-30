@@ -1,0 +1,20 @@
+.text{
+    width: 550px;
+    height: 370px;
+    margin: 150px auto;
+    padding-top: 50px;
+    padding-left: 50px;
+    background-color:#f7fafa;
+    color: #000;
+    font-family:PingFang SC,Hiragino Sans GB,Arial,Microsoft YaHei,Verdana,Roboto,Noto,Helvetica Neue,sans-serif !important ;
+    font-size: 16px;
+    opacity:0.5
+}
+
+p{
+    margin-bottom: 20px;
+}
+
+body{
+    background: url("../images/sky.jpg") no-repeat;
+}

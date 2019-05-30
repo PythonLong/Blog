@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}博客管理{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="../static/css/index.css">
+<link rel="stylesheet" href="../static/css/manage.css">
+<script src="../static/js/jquery-2.2.1.min.js"></script>
+<script src="../static/js/manage.js"></script>
+<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+{% endblock %}
+
+{% block page_content %}
+<ul class="feedlist_mod">
+    {% for item in posts %}
+    <li class="chearfix" data="{{ item.id }}">
+        <div class="floatR action">
+            <a href="{{ url_for('main.change',id=item.id) }}" class="action-btn edit">编辑</a>
+            <a href="javascript:void(0)"  onclick="del(this)" class="action-btn del">删除</a>
+        </div>
+        <div class="list_con">
+            <div class="title">
+                <h2>
+                    <a href="{{ url_for('main.show_post',id=item.id) }}">{{ item.title }}</a>
+                </h2>
+            </div>
+
+            <div class="summary oneline">
+                {{ item.text | truncate(50)}}
+            </div>
+            <dl class="list_userbar">
+                <dt>
+                    <a class="user_img" href="">
+                        <img src="{{ url_for('main.get_avatar',filename=item.author.avatar_s)}}" alt="">
+                    </a>
+                </dt>
+                <dd class="name">
+                    <a href="">{{ item.author.username}}</a>
+                </dd>
+                <div class="interval"></div>
+                <dd class="tag">
+                    前端
+                </dd>
+                <div class="interval"></div>
+                <dd class="time">{{ item.time }}</dd>
+                <div class="interval"></div>
+                <dd>
+                    <span class="text">评论数</span>
+                    <span class="num">58</span>
+                </dd>
+            </dl>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+<script>
+    function del(obj)
+    {
+        var Li = obj.parentNode.parentNode
+        var data_id = Li.getAttribute("data")
+
+        $.confirm({
+            title: '确认删除!',
+            content: '确定要删除该文章吗？',
+            columnClass: 'col-md-4 col-md-offset-4',
+            // confirmButtonClass: 'btn-danger',
+            // cancelButtonClass: 'btn-info',
+            buttons:{
+                cancel:{
+                    text:'取消',
+                    btnClass: 'btn-blue',
+                    keys:['esc'],
+                    action:function(){
+                        $.alert('You clicked on "取消".');
+                    }
+                },
+
+                ok:{
+                    text:'删除',
+                    btnClass: 'btn-red',
+                    keys:['enter'],
+                    action:function(){
+                       $.ajax({
+                        type:"POST",
+                        timeout:3000,
+                        url:'',
+                        data:{
+                            "id":data_id
+                        },
+                        success:function (data) {
+                            Li.remove();
+                        },
+                        error:function () {
+                            alert("请求出错!")
+                        },
+                        complete : function(XMLHttpRequest,status){ //请求完成后最终执行参数
+                    　　　　if(status=='timeout'){//超时,status还有success,error等值的情况
+                     　　　　　 ajaxTimeoutTest.abort();
+                    　　　　　  alert("请求超时");
+                    　　　　}
+    　　                  }
+                        })
+                    }
+                },
+            }
+        })
+    }
+</script>
+{% endblock %}

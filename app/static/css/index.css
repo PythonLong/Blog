@@ -1,0 +1,142 @@
+.feed-fix-box {
+    height: 32px;
+    width: 760px;
+    margin: 0 auto;
+}
+
+.feed-fix-box .scroll-fixbar {
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    background-color: #dddddd;
+    line-height: 32px;
+    text-align: center;
+    color: skyblue;
+}
+
+.feedlist_mod{
+    line-height: 24px;
+    font-size: 16px;
+    color: #333;
+    list-style: none;
+    width: 760px;
+    margin: 0 auto;
+}
+
+.chearfix{
+    clear: both;
+}
+
+.feedlist_mod li{
+    padding: 18px 24px;
+    background: #fff;
+    border-bottom: 1px solid #f4f4f4;
+    position: relative;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.04);
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.04);
+}
+
+.feedlist_mod li .list_con h2 {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 24px;
+    height: 24px;
+    margin-bottom: 4px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.feedlist_mod li .list_con h2 a {
+    max-width: 98%;
+    color: #3d3d3d;
+    display: block;
+    line-height: 24px;
+    height: 24px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+.feedlist_mod li .list_con h2 a:link {
+    color: #3d3d3d;
+}
+
+.feedlist_mod li .list_con .summary {
+    margin-bottom: 4px;
+    color: #8a8a8a;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.oneline {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.feedlist_mod li .list_con dl.list_userbar {
+    height: 24px;
+    line-height: 24px;
+}
+
+.feedlist_mod li .list_con dl.list_userbar dt {
+    float: left;
+    margin: 0 6px 0 0;
+}
+
+
+.feedlist_mod li .list_con dl.list_userbar dt .user_img {
+    position: relative;
+    display: inline-block;
+}
+
+
+.feedlist_mod li .list_con dl.list_userbar dt .user_img img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.feedlist_mod li .list_con dl.list_userbar dd {
+    float: left;
+    font-size: 14px;
+    color: #8a8a8a;
+    line-height: 24px;
+}
+
+.feedlist_mod li .list_con dl.list_userbar .interval {
+    float: left;
+    width: 1px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    margin-top: 6px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.feedlist_mod li .list_con .interactive {
+    line-height: 24px;
+}
+
+.floatR {
+    float: right;
+}
+
+
+.feedlist_mod li .list_con .interactive .common_num {
+    float: right;
+}
+
+.text{
+    color:#8a8a8a;
+}
+
+.num{
+    color: #349edf;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="../static/css/nav.css">
+    {% block link %}
+    {% endblock %}
+</head>
+<body>
+    <div class="head">
+		<div class="nav-center">
+			<div class="fl">
+				<ul class="list">
+					<li><a href="{{ url_for('main.index')}}">首页</a></li>
+					<li><a href="{{ url_for('main.edit_post') }}">写博</a></li>
+					<li>
+						<div><a href="#" id="show1">标签 ▼</a></div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="displ_container1" id="displ_Container">
+				<ul>
+					<li><a href="#">11</a></li>
+					<li><a href="#">22</a></li>
+					<li><a href="#">33</a></li>
+					<li><a href="#">44</a></li>
+				</ul>
+			</div>
+
+			<form action="" class="parent">
+					<input type="text" class="search" placeholder="搜索">
+					<input type="button" name="" id="" class="searchbtn">
+			</form>
+
+			<div class="container">
+                {% if current_user.is_anonymous %}
+                <div class="a_list">
+                    <a href="{{ url_for('auth.login')}}" class="username">Sign in</a>
+                </div>
+
+                {% else %}
+				<a class="info" href="#">
+					<span class="number">0</span>
+				</a>
+				<div class="i-face">
+					<img class="avatar" src="{{	url_for('main.get_avatar',filename=current_user.avatar_s)}}">
+				</div>
+
+				<div class="a_list" id="show">
+                    <a class="username" href="#">
+						<span>{{ current_user.username}}</span>
+						<!-- <span class="down-arrow"></span> -->
+						<!-- <span class="ico">▼</span> -->
+					</a>
+					<div class="displ_container" id="displ_container">
+						<ul>
+							<li><a href="#">个人中心</a></li>
+							<li><a href="{{ url_for('main.manage') }}">管理博客</a></li>
+                            <li><a href="#">我的收藏</a></li>
+							<li><a href="#">我的关注</a></li>
+							<li><a href="#">我的博客</a></li>
+							<hr/>
+							<li><a href="{{ url_for('auth.logout')}}">退出账号</a></li>
+						</ul>
+					</div>
+				</div>
+
+                {% endif %}
+			</div>
+
+		</div>
+
+	</div>
+    {% block page_content %}
+    {% endblock %}
+	{% if current_user.is_authenticated %}
+    <script type="text/javascript">
+        var show = document.getElementById('show');
+        var list = document.getElementById('displ_container');
+
+        show.onmousemove = function spring() {
+
+            list.style.display = 'block';
+
+        }
+        show.onmouseout = function hidden() {
+
+            list.style.display = 'none';
+        }
+    </script>
+    {% endif %}
+</body>
+</html>

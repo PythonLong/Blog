@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}
+    写博客
+{% endblock %}
+
+{% block link %}
+<script src="../static/js/jquery-2.2.1.min.js"></script>
+<script src="../static/js/tag.js"></script>
+<link rel="stylesheet" href="../static/css/edit_post.css">
+<link rel="stylesheet" href="../static/css/tag.css">
+{% endblock %}
+
+{% block page_content %}
+    <div class="content-body">
+        <div class="title-box">
+            <input id="txtTitle" type="text" maxlength="32" placeholder="输入文章标题">
+        </div>
+        <div id="editor" class="editor">
+                
+        </div>
+
+        <div class="tag-box">
+            <label class="label"><b>文章标签:</b><span>(回车生成,最多5个)</span></label>
+            <input type="text" id="MytagValue" >
+        </div>
+        <div class="btn-box">
+            <button id ='btn1' class="btn btn-outline-publish">发布</button>
+            <a href="{{ url_for('main.index') }}">
+                <button id ='btn2' class="btn btn-outline-cancel">取消</button>
+            </a>
+        </div>
+    </div>
+    
+    <!-- 注意， 只需要引用 JS，无需引用任何 CSS ！！！-->
+    <script type="text/javascript" src="../static/js/wangEditor.min.js"></script>
+    <script type="text/javascript">
+        var tag = new Tag("MytagValue");
+	    tag.initView();
+
+        var E = window.wangEditor;
+        var editor = new E('#editor');
+        // 或者 var editor = new E( document.getElementById('#editor') )
+        editor.create()
+
+        document.getElementById('btn1').addEventListener('click',function(){
+            var title = $("#txtTitle").val();
+            var html = editor.txt.html();
+            var text = editor.txt.text();
+            var taginfo = tag.getTags_data();
+
+            // console.log(title);
+            // console.log(html);
+            // console.log(text);
+            // console.log(taginfo);
+            if (title == null || title == "")
+            {
+                alert("标题不能为空");
+                return;
+            }
+
+            if (html == null || html == "" || text == null || text == "" )
+            {
+                alert("内容不能为空");
+                return;
+            }
+            $.ajax({
+                type:"POST",
+                timeout:3000,
+                url:'',
+                data:{
+                    'title':title,
+                    'html':html,
+                    'text':text,
+                    'taginfo':JSON.stringify(taginfo)
+                },
+                success:function (data) {
+                    window.location.href = "/";
+                },
+                error:function () {
+                    alert("请求出错!")
+                },
+                complete : function(XMLHttpRequest,status){ //请求完成后最终执行参数
+            　　　　if(status=='timeout'){//超时,status还有success,error等值的情况
+             　　　　　 ajaxTimeoutTest.abort();
+            　　　　　  alert("请求超时");
+            　　　　}
+　　            }
+
+            })
+       });
+    </script>
+    <script>
+        var container = document.getElementsByClassName("w-e-text-container")
+        var toolbar = document.getElementsByClassName("w-e-toolbar")
+        toolbar[0].style = "background-color:#f1f1f1; border:1px solid #ccc;margin:0 auto;"
+        container[0].style = "border:1px solid #ccc; border-top:none; height:700px; z-index:10000;margin:0 auto;"
+
+    </script>
+{% endblock %}
